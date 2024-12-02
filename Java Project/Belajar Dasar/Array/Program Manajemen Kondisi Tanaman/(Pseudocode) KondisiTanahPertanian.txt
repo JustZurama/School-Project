@@ -1,0 +1,56 @@
+START PROGRAM
+
+// Deklarasi variabel Scanner dan hasil perhitungan
+DEKLARASI userInput SEBAGAI Scanner
+DEKLARASI kelembaban SEBAGAI array 2D berukuran 4*5
+DEKLARASI DAN INISIALISASI total SEBAGAI int DENGAN 0
+DEKLARASI rataRataBaris SEBAGAI double
+DEKLARASI rataRataKolom SEBAGAI double
+
+TAMPILKAN "Program Monitor Kondisi Tanah pada Pertanian."
+
+MENJEDA PROGRAM HINGGA PENGGUNA MENEKAN ENTER
+
+// Meminta pengguna memasukkan data-data kedalam array
+TAMPILKAN "Masukkan 5 buah data (berupa angka) kondisi dari kelembaban tanah."
+FOR i DARI 0 HINGGA 3
+    FOR j DARI 0 HINGGA 4
+        TAMPILKAN "Data kelembaban pada baris ke-(1 HINGGA 4) kolom ke-(1 HINGGA 5): "
+        INISIALISAI kelembaban[i][j] DENGAN userInput
+    END FOR
+END FOR
+
+// Menampilkan data-data yang berhasil dimasukkkan
+TAMPILKAN "Dari data-data kelembaban tanah yang dimasukkan, didapat:"
+FOR i DARI 0 HINGGA 3
+    TAMPILKAN "Area (1 HINGGA 4): [ "
+    FOR j DARI 0 HINGGA 4
+        TAMPILKAN kelembaban[i][j], "
+    END FOR
+    TAMPILKAN "]"
+    TAMPILKAN baris baru
+END FOR
+
+MENJEDA PROGRAM HINGGA PENGGUNA MENEKAN ENTER 
+
+// Menghitung rata-rata nilai per baris
+TAMPILKAN "Rata-rata Kelembaban per naris:"
+FOR i DARI 0 HINGGA 3
+    FOR j DARI 0 HINGGA 4
+        INISIALISASI total DENGAN MENJUMLAHKAN kelembaban[i][j]
+    END FOR
+    INISIALISASI rataRataBaris DENGAN total / 4
+    TAMPILKAN "Baris (1 HINGGA 4)" rataRataBaris
+END FOR
+
+// Menghitung rata-rata nilai per kolom
+TAMPILKAN "Rata-rata Kelembaban per kolom:"
+FOR i DARI 0 HINGGA 3
+    FOR j DARI 0 HINGGA 4
+        INISIALISASI total DENGAN MENJUMLAHKAN kelembaban[i][j]
+    END FOR
+    INISIALISASI rataRataKolom DENGAN total / 4
+    TAMPILKAN "Kolom (1 HINGGA 4)" rataRataKolom
+END FOR
+
+END PROGRAM

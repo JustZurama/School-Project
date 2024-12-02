@@ -1,0 +1,157 @@
+/* Pseudocode untuk Kode Program Aplikasi Manajemen Pelanggan
+ * 
+ * Ditulis dan disusun oleh:
+ * Nama: Muhammad Ramadhani Pratama 
+ * NIM_Kelas: 2401301055_TI 1E 
+ */
+
+MEMULAI PROGRAM
+
+    // Kelas utama sebagai inti jalannya program
+    KELAS AplikasiManajemenPelanggan
+        
+        // Fungsi utama dari jalannya program
+        FUNGSI main
+            DEKLARASI userInput SEBAGAI SCANNER
+            DEKLARASI manajemenPelanggan SEBAGAI ManajemenPelanggan
+            DEKLARASI mainMenuChoice SEBAGAI char
+
+            PERULANGAN DO 
+                MEMANGGIL FUNGSI menuUtama()
+                INISIALISASI mainMenuChoice DENGAN userInput
+                
+                SWITCH CASE: TERJADI BERDASARKAN mainMenuChoice
+                    CASE '1':
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                        MEMINTA PENGGUNA MEMASUKKAN DATA-DATA MELALUI userInput
+                        MEMETAKAN DATA-DATA KE FUNGSI menambahPelanggan() MELALUI KELAS ManajemenPelanggan
+                        MEMANGGIL pauseForUserInput() // Untuk menjeda program sementara
+                        AKHIRI CASE
+                        
+                    CASE '2':
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                        MEMINTA PENGGUNA MEMASUKKAN DATA-DATA MEALUI userInput
+                        MEMETAKAN DATA-DATA KE FUNGSI menghapusPelanggan() MELALUI KELAS ManajemenPelanggan
+                        MEMANGGIL pauseForUserInput()
+                        AKHIRI CASE
+                        
+                    CASE '3':
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                        MEMANGGIL FUNGSI tampilkanDaftarPelanggan() MELALUI KELAS ManajemenPelanggan
+                        MEMANGGIL pauseForUserInput() 
+                        AKHIRI CASE
+                        
+                    CASE '4':
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                        MEMINTA PENGGUNA MEMASUKKAN DATA-DATA MEALUI userInput
+                        MEMETAKAN DATA-DATA KE FUNGSI mencariPelanggan() MELALUI KELAS ManajemenPelanggan
+                        MEMANGGIL pauseForUserInput()
+                        AKHIRI CASE
+
+                    CASE '0':
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                        MENGAKHIRI PROGRAM
+                        
+                    DEFAULT:
+                        MENAMPILKAN TEKS INFORMASI KECIL
+                AKHIRI SWITCH
+            PERULANGAN TERUS TERJADI SELAMA mainMenuChoice BUKAN '0'
+        AKHIRI FUNGSI
+            
+        // Fungsi untuk menampilkan menu utama
+        FUNGSI menuUtama()
+            MENAMPILKAN TEKS-TEKS INFORMASI MENU UTAMA
+        AKHIRI FUNGSI
+
+        // Fungsi untuk menjeda sementara program
+        FUNGSI pauseForUserInput()
+            DEKLARASI pauseInput SEBAGAI SCANNER
+            MENAMPILKAN TEKS INFORMASI UNTUK INDIKASI PENGGUNA MENEKAN TOMBOL ENTER
+            INISIALISASI pauseInput DENGAN nextLine()
+        AKHIRI FUNGSI
+
+    AKHIRI KELAS
+
+    // Kelas untuk memanajemen/mengatur data-data pelanggan
+    KELAS ManajemenPelanggan
+
+        DEKLARASI dataPelanggan SEBAGAI ArrayList MEALUI ArrayList<Pelanggan> 
+
+        // Fungsi untuk menambah pelanggan dari data
+        FUNGSI menambahPelanggan(DENGAN nama, email, nomorTelepon)
+            MENAMBAH DATA-DATA KE DALAM FUNGSI Pelanggan PADA KELAS pelanggan MELALUI dataPelanggan DENGAN nama, email, nomorTelepon
+            MENAMPILKAN INFORMASI SUKSES MENAMBAHKAN
+        AKHIRI FUNGSI
+
+        // Fungsi untuk menghapus pelanggan dari data
+        FUNGSI menghapusPelanggan(DENGAN identifier)
+            FOR EACH pelanggan DARI KELAS Pelanggan PADA dataPelanggan
+                IF pelanggan DARI FUNGSI getNama() SAMA DENGAN identifier TANPA MEMBEDAKAN CASE, MAKA
+                    HAPUS PELANGGAN DARI dataPelanggan 
+                    MENAMPILKAN TEKS INFORMASI SUKSES MENGHAPUS
+                AKHIRI IF
+            IF pelanggan DARI FUNGSI getNama() != identifier TANPA MEMBEDAKAN CASE, MAKA
+                MENAMPILKAN TEKS INFORMASI GAGAL DIHAPUS
+            AKHIRI IF
+        AKHIRI FUNGSI
+
+        // Fungsi untuk menampilkan daftar pelanggan pada data
+        FUNGSI tampilkanDaftarPelanggan()
+            IF dataPelanggan.isEmpty() MAKA
+                MENAMPILKAN TEKS INFORMASI TIDAK ADA PELANGGAN TERDAFTAR
+            AKHIRI IF ELSE
+                FOR i DARI 0 HINGGA dataPelanggan.size(); i DINAIKKAN, MAKA 
+                    MENAMPILKAN DAFTAR PELANGGAN PADA dataPelanggan
+                AKHIRI FOR
+                MENAMPILKAN TEKS INFORMASI SUSKSES MENAMPILKAN DAFTAR
+            AKHIRI ELSE
+
+        // Fungsi untuk mencari pelanggan yang terdaftar pada data
+        FUNGSI mencariPelanggan()
+            MENAMPILKAN "Pelanggan yang berhasil ditemukan: "
+            FOR EACH pelanggan DARI KELAS Pelanggan PADA dataPelanggan
+                IF getNama() ATAU getEmail() ATAU getNomorTelepon() ==  identifier DENGAN MENGECILKAN CASE, MAKA
+                    MENAMPILKAN DAFTAR PELANGGAN YANG ditemukan
+                AKHIRI IF
+            AKHIRI FOR EACH
+            IF PELANGGAN TIDAK DITEMUKAN, MAKA
+                MENAMBAHKAN TEKS INFORMASI GAGAL MENEMUKAN
+            AKHIRI IF
+        AKHIRI FUNGSI
+
+    AKHIRI KELAS
+
+    // Kelas untuk wadah data pelanggan
+    KELAS Pelanggan
+        
+        DEKLARASI nama SEBAGAI String
+        DEKLARASI email SEBAGAI String
+        DEKLARASI nomorTelepon SEBAGAI String
+  
+        // Fungsi untuk meneruskan nilai parameter ke atribut instance dari objek/data yang sedang dibuat atau diproses
+        FUNGSI Pelanggan (DENGAN nama, email, nomorTelepon)       
+            MENETAPKAN this.nama = nama
+            MENETAPKAN this.email = email
+            MENETAPKAN this.nomorTelepon = nomorTelepon
+        AKHIRI FUNGSI
+
+        FUNGSI getNama() // Menyimpan data nama
+            MENGEMBALIKAN nama
+        AKHIRI FUNGSI
+        
+        FUNGSI getEmail() // Menyimpan data email
+            MENGEMBALIKAN email
+        AKHIRI FUNGSI
+        
+        FUNGSI getNomorTelepon() // Menyimpan data nomor telepon
+            MENGEMBALIKAN nomorTelepon
+        AKHIRI FUNGSI
+
+        // Fungsi untuk mengubah dan menampilkan data sebagai String
+        FUNGSI toString()
+            MENGEMBALIKAN "Nama: " + nama + ", Email: " + email + ", Nomor Telepon: " + noTelepon
+        AKHIRI FUNGSI
+        
+    AKHIRI KELAS
+
+AKHIRI PROGRAM

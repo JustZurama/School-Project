@@ -1,0 +1,106 @@
+START PROGRAM
+
+// Deklarasi variabel Scanner dan hasil perhitungan
+DEKLARASI userInput SEBAGAI Scanner
+DEKLARASI hasilProduksi SEBAGAI array 2D berukuran 3*6
+DEKLARASI DAN INISIALISASI total SEBAGAI int DENGAN 0
+DEKLARASI rataRataBulan SEBAGAI double
+
+TAMPILKAN "Program Manajemen Hasil Produksi Tanaman."
+
+MENJEDA PROGRAM HINGGA PENGGUNA MENEKAN ENTER
+
+// Meminta data-data dari masukan pengguna untuk disimpan kedalam array
+TAMPILKAN "Masukkan 6 buah data (berupa angka) hasil produksi tanaman."
+// Meminta data hasi produksi tomat
+FOR i DARI 0 HINGGA 1
+    TAMPILKAN "Data Produksi Tomat: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN "Data ke-(1 HINGGA 6): "
+        INISIALISAI kelembaban[i][j] DENGAN userInput
+    END FOR
+END FOR
+// Meminta data hasi produksi cabai
+FOR i DARI 1 HINGGA 2
+    TAMPILKAN "Data Produksi Cabai: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN "Data ke-(1 HINGGA 6): "
+        INISIALISAI kelembaban[i][j] DENGAN userInput
+    END FOR
+END FOR
+// Meminta data hasi produksi jagung
+FOR i DARI 2 HINGGA 3
+    TAMPILKAN "Data Produksi Jagung: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN "Data ke-(1 HINGGA 6): "
+        INISIALISAI kelembaban[i][j] DENGAN userInput
+    END FOR
+END FOR
+
+// Menampilkan masing-masing data hasil produksi tanaman dari masukan pengguna 
+TAMPILKAN "Dari data-data hasil produksi tanaman yang dimasukkan, didapat sebagai berikut."
+TAMPILKAN "Hasil produksi tanaman (dalam satuan kg.): "
+// Menampilkan produksi tomat
+FOR i DARI 0 HINGGA 1
+    TAMPILKAN "Hasil Produksi Tomat: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN hasilProduksi[i][j] ", "
+    END FOR
+    TAMPILKAN "]"
+    TAMPILKAN baris baru
+END FOR
+// Menampilkan produksi cabai
+FOR i DARI 0 HINGGA 1
+    TAMPILKAN "Hasil Produksi cabai: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN hasilProduksi[i][j] ", "
+    END FOR
+    TAMPILKAN "]"
+    TAMPILKAN baris baru
+END FOR
+// Menampilkan produksi jagung
+FOR i DARI 0 HINGGA 1
+    TAMPILKAN "Hasil Produksi jagung: "
+    FOR j DARI 0 HINGGA 5
+        TAMPILKAN hasilProduksi[i][j] ", "
+    END FOR
+    TAMPILKAN "]"
+    TAMPILKAN baris baru
+END FOR
+
+MENJEDA PROGRAM HINGGA PENGGUNA MENEKAN ENTER
+
+// Menghitung rata-rata produksi per tanaman dan per bulan
+TAMPILKAN "Jumlah produksi per tanaman."
+// Menghitung rata-rata produksi tomat
+FOR i DARI 0 HINGGA 1
+    FOR j DARI 0 HINGGA 5
+        INISIALISASI total DENGAN MENJUMLAHKAN hasilProduksi[i][j]
+    END FOR
+    TAMPILKAN "Produksi tomat: " total "kg."
+END FOR
+// Menghitung rata-rata produksi cabai
+FOR i DARI 1 HINGGA 2
+    FOR j DARI 0 HINGGA 5
+        INISIALISASI total DENGAN MENJUMLAHKAN hasilProduksi[i][j]
+    END FOR
+    TAMPILKAN "Produksi cabai: " total "kg."
+END FOR
+// Menghitung rata-rata produksi jagung
+FOR i DARI 1 HINGGA 2
+    FOR j DARI 0 HINGGA 5
+        INISIALISASI total DENGAN MENJUMLAHKAN hasilProduksi[i][j]
+    END FOR
+    TAMPILKAN "Produksi jagung: " total "kg."
+END FOR
+// Menghitung rata-rata per bulan (per kolom)
+TAMPILKAN "Rata-rata hasil produksi per bulan:"
+FOR i DARI 0 HINGGA 1
+    FOR j DARI 0 HINGGA 5
+        INISIALISASI total DENGAN MENJUMLAHKAN hasilProduksi[i][j]
+    END FOR
+    INISIALISASI rataRataBulan DENGAN total / 3
+    TAMPILKAN "Produksi tomat: " total "kg."
+END FOR
+
+END PROGRAM
