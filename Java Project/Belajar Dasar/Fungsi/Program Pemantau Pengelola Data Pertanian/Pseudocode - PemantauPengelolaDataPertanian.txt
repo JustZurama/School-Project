@@ -1,0 +1,72 @@
+MEMULAI PROGRAM
+
+KELAS PemantauPengelolaDataPertanian
+    
+    FUNGSI main()
+        DEKLARASI scanner SEBAGAI Scanner
+        DEKLARASI pemantauan SEBAGAI ATRIBUT INSTANCE DARI Pemantauan
+        DEKLARASI BEBERAPA DATA
+
+        MENAMPILKAN TEKS INFORMASI KECIL
+        
+        PERULANGAN while
+            MELAUI try
+                MEMINTA PENGGUNA MEMASUKKAN DATA
+                MENYIMPAN DATA MASUKAN PENGGUNA
+                break
+            catch
+                JIKA MASUKAN TIDAK VALID PROGRAM KEMBALI MENGULANGI PERMINTAAN MASUKAN DATA
+        MENGAKHIRI PERULANGAN
+
+        MEMANGGIL pauseForUserInput(); UNTUK MENJEDA PROGRAM
+
+        // Melakukan perhitungan melalui fungsi-fungsi
+        MENJUMLAHKAN NILAI SUHU UNTUK DISIMPAN KE totalSuhu
+        MENGHITUNG INDEKS KUALITAS MELALUI hitungIndeksKualitas() UNTUK DISIMPAN KE indeksKualitas
+        MENAMPILKAN INDEKS KUALITAS
+        MENHITUNG NILAI RATA-RATA SUHU MELALUI rerataData() UNTUK DISIMPAN KE rataRataSuhu
+        MENAMPILKAN RATA RATA-SUHU
+        
+        // Menampilkan data-data hasi perhitungan
+        MEMANGGIL bacaDataSensor() UNTUK MEMBACA DAN MENAMPILKAN NILAI totalSuhu, kelembapan, phTanah
+
+        // Mengevaluasi jika tanaman membutuhkan penyiraman
+        MEMBANDINGKAN NILAI indeksKualitas <= 28.5 MELALUI evaluasiKondisi() UNTUK DISIMPAN KE perluPenyiraman
+        MENAMPILKAN STATUS KONDISI TANAMAN JIKA (perluPenyiraman BERNILAI TRUE, MAKA "perlu dilakukan penyiraman." JIKA TIDAK "tidak perlu dilakukan penyiraman.")
+    MENGAKHIRI FUNGSI
+
+    FUNGSI pauseForUserInput()
+        MENAMPILKAN "Tekan ENTER untuk melakukan perhitungan..."
+        MEMINTA PENGGUNA MENEKAN ENTER
+    MENGAKHIRI FUNGSI
+
+MENGAKHIRI KELAS
+
+KELAS SensorData
+    FUNGSI rerataData()
+        MELAKUKAN PERHITUNGAN RATA-RATA UNTUK NILAI YANG DIBERIKAN
+        MENGEMBALIKAN HASIL PERHITUNGAN
+    MENGAKHIRI FUNGSI
+MENGAKHIRI KELAS
+
+KELAS Pemantauan
+    FUNGSI hitungIndeksKualitas()
+        MELAKUKAN PERHITUNGAN TERTENTU UNTUK NILAI YANG DIBERIKAN
+        MENGEMBALIKAN HASIL PERHITUNGAN
+    MENGAKHIRI FUNGSI
+
+    FUNGSI bacaDataSensor()
+        MENAMPILKAN TEKS KECIL SERTA DATA-DATA YANG TELAH DITERIMA DAN DIBACA
+    MENGAKHIRI FUNGSI
+    
+    FUNGSI evaluasiKondisi()
+        MELAKUKAN OPERASI YANG DIPANGGIL MELALUI LAMBDA EXPRESSION
+        MENGEMBALIKAN HASIL OPERASI MELALUI Evaluator.evaluate()
+    MENGAKHIRI FUNGSI
+MENGAKHIRI KELAS
+
+interface Evaluator
+    boolean evaluate(double value);
+END interface
+
+MENGAKHIRI PROGRAM
