@@ -1,0 +1,6 @@
+Alice Brown - Umur: 30, Tanaman: Sayuran
+Charlie Green - Umur: 50, Tanaman: Jagung
+Jane Smith - Umur: 28, Tanaman: Padi
+John Doe - Umur: 35, Tanaman: Jagung
+Mark Taylor - Umur: 43, Tanaman: Kedelai
+Rata-rata umur petani: 37.2
