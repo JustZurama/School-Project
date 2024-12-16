@@ -1,0 +1,54 @@
+START
+
+    // Inisialisasi
+    DECLARE daftarPetani AS List
+    DECLARE inputFile AS String = "petani.txt"
+    DECLARE outputFile AS String = "output_petani.txt"
+    DECLARE rataRataUmur AS Double = 0
+
+    // Membaca data dari file input
+    TRY
+        OPEN inputFile FOR READING
+        PRINT "Membaca data dari file"
+
+        WHILE NOT END OF FILE
+            READ line FROM inputFile
+            SPLIT line INTO nama, umur, tanaman USING ","
+            CREATE new Petani(nama, umur, tanaman)
+            ADD Petani TO daftarPetani
+            PRINT nama, umur, tanaman
+        END WHILE
+    CATCH IOException
+        PRINT "Error membaca file"
+        EXIT
+    END TRY
+
+    // Menghitung rata-rata umur
+    DECLARE totalUmur AS Integer = 0
+    FOR EACH petani IN daftarPetani
+        totalUmur = totalUmur + petani.umur
+    END FOR
+    rataRataUmur = totalUmur / LENGTH(daftarPetani)
+    PRINT "Rata-rata umur petani: " + rataRataUmur
+
+    // Mengurutkan daftar petani berdasarkan nama
+    SORT daftarPetani BY petani.nama
+
+    // Menulis data ke file output
+    TRY
+        OPEN outputFile FOR WRITING
+        PRINT "Menulis data ke file output"
+
+        FOR EACH petani IN daftarPetani
+            WRITE petani TO outputFile
+            PRINT petani
+        END FOR
+        WRITE "Rata-rata umur petani: " + rataRataUmur TO outputFile
+    CATCH IOException
+        PRINT "Error menulis file"
+        EXIT
+    END TRY
+
+    PRINT "Data petani telah ditulis ke file output"
+
+END

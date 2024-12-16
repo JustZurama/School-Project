@@ -1,0 +1,5 @@
+John Doe,35,Jagung
+Jane Smith,28,Padi
+Mark Taylor,43,Kedelai
+Alice Brown,30,Sayuran
+Charlie Green,50,Jagung
