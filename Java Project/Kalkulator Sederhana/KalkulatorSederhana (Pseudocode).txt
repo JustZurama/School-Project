@@ -1,0 +1,56 @@
+START PORGRAM
+
+CLASS KalkulatorSederhana
+    FUNCTION main()
+        
+        DECLARE operator AS INSTANCE ATTRIBUTE
+        PRINT "Program Aplikasi kalkulator sederhana"
+        
+        DO-WHILE userInput != '0'
+            INPUT NUMBER1 AND NUMBER2
+
+            SHOW OPERATIONS MENU
+            SWITCH
+                CASE '1':
+                    ADD NUMBERS THROUGH FUNCTION penambahan()
+                    SHOW RESULT
+                CASE '2':
+                    SUBTRACT NUMBERS THROUGH FUNCTION pengurangan()
+                    SHOW RESULT
+                CASE '3':
+                    MULTIPLY NUMBERS THROUGH FUNCTION perkalian()
+                    SHOW RESULT
+                CASE '4':
+                    IF NUMBER2 != 0 THEN
+                        DIVIDE NUMBERS THROUGH FUNCTION pembagian()
+                        SHOW RESULT
+                    ELSE
+                        PRINT "Kesalahan: Pembagian dengan nol (0)!"
+                    END IF
+                CASE '0':
+                    PRINT "Menutup program..."
+                DEFAULT:
+                    PRINT "Kunci yang anda masukkan tidak valid, masukkan angka (1), (2), (3), (4) atau (0)."
+            END SWITCH
+        END DO-WHILE
+    
+    END FUNCTION
+END CLASS
+
+CLASS OperasiPerhitungan
+    FUNCTION penambahan()
+        ADD NUMBERS THEN RETURN THE RESULT
+    END FUNCTION
+
+    FUNCTION pengurangan(A, B)
+        SUBTRACT NUMBERS THEN RETURN THE RESULT
+    END FUNCTION
+
+    FUNCTION perkalian(A, B)
+        MULTIPLY NUMBERS THEN RETURN THE RESULT
+    END FUNCTION
+
+    FUNCTION pembagian(A, B)
+        DIVIDE NUMBERS THEN RETURN THE RESULT
+    END FUNCTION
+END CLASS
