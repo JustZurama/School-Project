@@ -1,0 +1,4 @@
+Untuk file 'inventaris.txt', itu digunakan untuk data yang dibuat (ditulis) oleh program.
+Program akan membuat file tersebut jika pengguna memilih menu '6 - Simpan perubahan data' pada program bagian pemilihan menu.
+Ketika menjalankan program, pertama-tama program akan mencari file tersebut. Jika ketemu, maka program akan membaca dan mengakses data-data di dalamnya.
+(lihat diagram alir)
